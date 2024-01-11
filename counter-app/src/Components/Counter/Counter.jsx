@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styles from "./Counter.module.css"
 import CounterCard from '../CounterCard/CounterCard';
+
 const Counter = () => {
     const [counters, setCounters] = useState([]);
     const [counterId, setCounterId] = useState(1);
