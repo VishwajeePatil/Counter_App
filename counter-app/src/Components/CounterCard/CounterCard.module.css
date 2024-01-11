@@ -1,6 +1,5 @@
 .main{
     border: 2px solid grey;
-    width: 250px;
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -8,9 +7,10 @@
     padding: 20px;
     border-radius: 10px;
 }
-.main >div:nth-child(2){
+.main > div:nth-child(2){
     width: 100%;
     display: flex;
+    align-items: center;
     justify-content: space-between;
 }
 .main > div > p{

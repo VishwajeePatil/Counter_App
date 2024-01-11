@@ -17,13 +17,14 @@ const Counter = () => {
                 <button onClick={handelClick}> Add Counter </button>
             </div>
             <div className={styles.counterholder}>
-                {counters.length === 0 ? (<p>Click On Add Counter</p>) : 
-                (
-                    counters.map((counter) => (
+                {
+                    counters.length === 0 ? (<div className={styles.heading}>Click On Add Counter</div>) : 
+                    (<div className={styles.holder}> 
+                    {counters.map((counter) => (
                         <CounterCard key={counter.id} id={counter.id} handelDelete={handelDelete}/>
-                    ))
-                )}
-
+                    ))}
+                    </div>)
+                }
             </div>
         </div>
     )
