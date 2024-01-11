@@ -4,28 +4,34 @@ const CounterCard = ({id,handelDelete}) => {
     let [count, setCount] = useState(0)
     const [up, setUp] = useState(true);
     const [isPlay, setIsPlay] = useState(true);
+
     const toggleIsPlay = () => {
         setIsPlay(!isPlay);
     }
+
     const deleteBtn = ()=>{
         handelDelete(id);
     }
-    useEffect(() => {
-        const intervalId = setInterval(() => {
-            if (isPlay){
-                if(up){
-                    setCount((prev) => prev + 1);
-                }
-                else{
-                    setCount((prev)=> prev - 1);
-                }
-            }
-        }, 1000);
+
+    const handleInterval = () => {
+        if (isPlay) {
+          if (up) {
+            setCount((prev) => prev + 1);
+          } else {
+            setCount((prev) => prev - 1);
+          }
+        }
+      };
+      
+      const toggleUp = ()=>{
+          setUp(!up);
+      }
+      
+      useEffect(() => {
+        const intervalId = setInterval(handleInterval, 1000);
         return () => clearInterval(intervalId);
-    }, [isPlay,up])
-    const toggleUp = ()=>{
-        setUp(!up);
-    }
+      }, [isPlay, up]);
+      
     return (
         <div className={styles.main}>
             <div>
